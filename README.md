@@ -17,9 +17,9 @@ Entier your chatgpt api key, upload your phd file, ask questions and select the 
 
 ### Interface of the App
 
-![alt text](http://url/to/img.png)
+![alt text](images/app_interface.png)
 
 ### Sample question and answer
 
-![alt text](http://url/to/img.png)
+![alt text](images/app_sample_query.png)
 
