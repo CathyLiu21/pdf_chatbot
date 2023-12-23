@@ -14,3 +14,4 @@ websockets
 tiktoken
 jinja2
 python-multipart
+googletrans
