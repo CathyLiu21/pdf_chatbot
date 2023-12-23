@@ -69,7 +69,7 @@ def main():
         st.stop()
     
     
-    os.environ["openai_api_key"] = openai_api_key
+  #  os.environ["openai_api_key"] = openai_api_key
     
     if pdf is not None:
         pdf_reader = PdfReader(pdf)
