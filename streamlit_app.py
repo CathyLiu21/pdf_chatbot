@@ -1,5 +1,6 @@
 import streamlit as st
 from googletrans import Translator
+from googletrans import LANGUAGES as googletrans_languages
 from streamlit_extras.add_vertical_space import add_vertical_space
 from PyPDF2 import PdfFileReader, PdfFileWriter,PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
