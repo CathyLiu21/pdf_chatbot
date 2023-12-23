@@ -151,19 +151,33 @@ def main():
                     st.write("PDF Chatbot Response:")
                     st.write(response)
 
+#                try:
+#                    translator = Translator()
+#                    translation = translator.translate(
+#                        response, src="en", dest=dest_lang)
+#                    if translation is not None and hasattr(translation, 'text') and translation.text:
+#                        st.write(
+#                            f"**Translated Answer ({dest_lang}):** {translation.text}")
+#                    else:
+#                        st.error(
+#                            "Translation failed. Please check your input and try again.")
+#                except Exception as e:
+#                    st.error(
+#                        f"An error occurred during translation: {str(e)}")
+
                 try:
-                    translator = Translator()
-                    translation = translator.translate(
-                        response, src="en", dest=dest_lang)
-                    if translation is not None and hasattr(translation, 'text') and translation.text:
-                        st.write(
-                            f"**Translated Answer ({dest_lang}):** {translation.text}")
-                    else:
-                        st.error(
-                            "Translation failed. Please check your input and try again.")
+                  translator = Translator()
+                  translation = translator.translate(response, src="en", dest=dest_lang)
+
+                  if translation and hasattr(translation, 'text') and translation.text:
+                         st.write(f"**Translated Answer ({dest_lang}):** {translation.text}")
+                  else:
+                          st.error("Translation failed. Please check your input and try again.")
+                          st.write(f"Translation object: {translation}")
+
                 except Exception as e:
-                    st.error(
-                        f"An error occurred during translation: {str(e)}")
+                       st.error(f"An error occurred during translation: {str(e)}")
+                       st.exception(e)
 
 
 
