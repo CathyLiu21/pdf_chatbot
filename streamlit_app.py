@@ -67,7 +67,7 @@ def main():
         st.stop()
     
     
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+  #  os.environ["OPENAI_API_KEY"] = openai_api_key
     
     if pdf is not None:
         pdf_reader = PdfReader(pdf)
@@ -131,7 +131,7 @@ def main():
             docs = vectorstore.similarity_search(query=query, k=3)
 
             # openai rank lnv process
-            llm = OpenAI(temperature=0, openai_api_key=OPENAI_API_KEY)
+            llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
             chain = load_qa_chain(llm=llm, chain_type="stuff")
 
             with st.form("language_selection"):
