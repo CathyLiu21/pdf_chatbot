@@ -14,4 +14,4 @@ websockets
 tiktoken
 jinja2
 python-multipart
-googletrans
+googletrans==4.0.0
