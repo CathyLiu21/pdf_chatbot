@@ -48,7 +48,7 @@ with st.sidebar:
     ''')
 
     add_vertical_space(4)
-    st.write('💡All about pdf based chatbot, created by VK🤗')
+    st.write('💡All about pdf based chatbot 🤗')
 
 load_dotenv()
 
