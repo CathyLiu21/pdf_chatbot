@@ -57,7 +57,9 @@ def main():
     st.header("📄Chat with your pdf file🤗")
     #upload a your pdf file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
-    st.write(pdf.name)
+   
+    if pdf is not None:
+       st.write(pdf.name)
 
     openai_api_key = st.sidebar.text_input('OpenAI API Key')
     os.environ["OPENAI_API_KEY"] = openai_api_key
