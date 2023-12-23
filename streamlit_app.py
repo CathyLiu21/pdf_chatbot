@@ -62,6 +62,9 @@ def main():
        st.write(pdf.name)
 
     openai_api_key = st.sidebar.text_input('OpenAI API Key')
+    if not openai_api_key:
+        st.warning("Please enter your OpenAI API Key.")
+        st.stop()
     os.environ["OPENAI_API_KEY"] = openai_api_key
     
     if pdf is not None:
