@@ -15,5 +15,11 @@ Chat with your pdf file and translate to diserable languages!
 Entier your chatgpt api key, upload your phd file, ask questions and select the language to see answers!
 
 
+### Interface of the App
 
+![alt text](http://url/to/img.png)
+
+### Sample question and answer
+
+![alt text](http://url/to/img.png)
 
