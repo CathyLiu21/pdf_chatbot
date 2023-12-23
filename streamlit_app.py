@@ -1,5 +1,5 @@
 import streamlit as st
-#from streamlit_extras import add_vertical_space
+from googletrans import Translator
 from streamlit_extras.add_vertical_space import add_vertical_space
 from PyPDF2 import PdfFileReader, PdfFileWriter,PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -114,18 +114,55 @@ def main():
         query = st.text_input("Ask questions about related your upload pdf file")
         #st.write(query)
 
-        if query:
-            docs = vectorstore.similarity_search(query=query,k=3)
-            #st.write(docs)
+#        if query:
+#            docs = vectorstore.similarity_search(query=query,k=3)
+#            #st.write(docs)
             
             #openai rank lnv process
-            llm = OpenAI(temperature=0,openai_api_key=openai_api_key)
-            chain = load_qa_chain(llm=llm, chain_type= "stuff")
+#            llm = OpenAI(temperature=0,openai_api_key=openai_api_key)
+#            chain = load_qa_chain(llm=llm, chain_type= "stuff")
             
-            with get_openai_callback() as cb:
-                response = chain.run(input_documents = docs, question = query)
-                print(cb)
-            st.write(response)
+#            with get_openai_callback() as cb:
+#                response = chain.run(input_documents = docs, question = query)
+#                print(cb)
+#            st.write(response)
+
+        if query:
+            docs = vectorstore.similarity_search(query=query, k=3)
+
+            # openai rank lnv process
+            llm = OpenAI(temperature=0, openai_api_key=openai_api_key)
+            chain = load_qa_chain(llm=llm, chain_type="stuff")
+
+            with st.form("language_selection"):
+                st.write("Select language for the answer:")
+                # allow users to select any destination language
+                dest_lang = st.selectbox(
+                    "Select destination language:", list(googletrans_languages.values()))
+                submit_button = st.form_submit_button(
+                    "Translate and Display Answer")
+
+            if submit_button:
+                with get_openai_callback() as cb:
+                    response = chain.run(
+                        input_documents=docs, question=query)
+                    st.write("PDF Chatbot Response:")
+                    st.write(response)
+
+                try:
+                    translator = Translator()
+                    translation = translator.translate(
+                        response, src="en", dest=dest_lang)
+                    if translation is not None and hasattr(translation, 'text') and translation.text:
+                        st.write(
+                            f"**Translated Answer ({dest_lang}):** {translation.text}")
+                    else:
+                        st.error(
+                            "Translation failed. Please check your input and try again.")
+                except Exception as e:
+                    st.error(
+                        f"An error occurred during translation: {str(e)}")
+
 
 
 
