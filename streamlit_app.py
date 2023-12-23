@@ -55,11 +55,13 @@ load_dotenv()
 
 def main():
     st.header("📄Chat with your pdf file🤗")
-
     #upload a your pdf file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
     st.write(pdf.name)
 
+    openai_api_key = st.sidebar.text_input('OpenAI API Key')
+    os.environ["OPENAI_API_KEY"] = openai_api_key
+    
     if pdf is not None:
         pdf_reader = PdfReader(pdf)
 
@@ -79,6 +81,8 @@ def main():
         
         #store pdf name
         store_name = pdf.name[:-4]
+
+        
         
         if os.path.exists(f"{store_name}.pkl"):
             with open(f"{store_name}.pkl","rb") as f:
@@ -108,7 +112,7 @@ def main():
             #st.write(docs)
             
             #openai rank lnv process
-            llm = OpenAI(temperature=0)
+            llm = OpenAI(temperature=0,openai_api_key=OPENAI_API_KEY)
             chain = load_qa_chain(llm=llm, chain_type= "stuff")
             
             with get_openai_callback() as cb:
