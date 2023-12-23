@@ -35,7 +35,7 @@ def add_bg_from_local(image_file):
 #sidebar contents
 
 with st.sidebar:
-    st.title('🦜️🔗VK - PDF BASED LLM-LANGCHAIN CHATBOT🤗')
+    st.title('🦜️🔗 PDF BASED LLM-LANGCHAIN CHATBOT🤗')
     st.markdown('''
     ## About APP:
 
