@@ -1,6 +1,5 @@
 import streamlit as st
-from googletrans import Translator
-from googletrans import LANGUAGES as googletrans_languages
+from googletrans import Translator, LANGUAGES as googletrans_languages
 from streamlit_extras.add_vertical_space import add_vertical_space
 from PyPDF2 import PdfFileReader, PdfFileWriter,PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -9,6 +8,8 @@ from langchain.vectorstores import FAISS
 from langchain.llms import OpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.callbacks import get_openai_callback
+
+
 
 import pickle
 import os
