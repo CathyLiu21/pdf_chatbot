@@ -61,14 +61,13 @@ def main():
     if pdf is not None:
        st.write(pdf.name)
 
-    openai_api_key_input = st.sidebar.text_input('OpenAI API Key')
-    if not openai_api_key_input:
+    openai_api_key = st.sidebar.text_input('OpenAI API Key')
+    if not openai_api_key:
         st.warning("Please enter your OpenAI API Key.")
         st.stop()
     
-    global openai_api_key
-    openai_api_key = openai_api_key_input   
-    os.environ["OPENAI_API_KEY"] = openai_api_key
+    
+   # os.environ["OPENAI_API_KEY"] = openai_api_key
     
     if pdf is not None:
         pdf_reader = PdfReader(pdf)
@@ -120,7 +119,7 @@ def main():
             #st.write(docs)
             
             #openai rank lnv process
-            llm = OpenAI(temperature=0,openai_api_key=OPENAI_API_KEY)
+            llm = OpenAI(temperature=0,openai_api_key=openai_api_key)
             chain = load_qa_chain(llm=llm, chain_type= "stuff")
             
             with get_openai_callback() as cb:
