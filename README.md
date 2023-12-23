@@ -1,25 +1,19 @@
-# 📦 Streamlit App Starter Kit 
+# 📦 Streamlit App 
 ```
-⬆️ (Replace above with your app's name)
+⬆️ PDF based chatbot with trasnlation 
 ```
 
-Description of the app ...
+Chat with your pdf file and translate to diserable languages!
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://pdfchatbot-vttzah6hwvsgndyw8v74fn.streamlit.app/)
 
-## GitHub Codespaces
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/app-starter-kit?quickstart=1)
+## How to use?
 
-## Section Heading
+Entier your chatgpt api key, upload your phd file, ask questions and select the language to see answers!
 
-This is filler text, please replace this with text for this section.
 
-## Further Reading
 
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
+
